@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-stack Todo App | Kufre Etuk</title>
+  <meta name="description" content="Case study: a full-stack todo app built with FastAPI, SQLModel and PostgreSQL.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="dots"><i></i><i></i><i></i><i></i></span>kufre</a>
+    <button class="menu-btn" aria-expanded="false" aria-label="Open menu">Menu</button>
+    <ul class="nav">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#projects" class="on">Projects</a></li>
+      <li><a href="index.html#contact" class="cta">Contact me</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="game-hero">
+    <div class="backdrop" style="background-image: linear-gradient(135deg, rgba(0,20,60,0.85), rgba(0,112,209,0.65)), url('images/todo-tile.jpg');"></div>
+    <div class="wrap">
+      <div class="art"><img src="images/todo-tile.jpg" alt="Todo app home page"></div>
+      <div>
+        <a href="index.html#projects" class="back">&larr; All projects</a>
+        <h1>Full-stack Todo App</h1>
+        <p class="lead">A server-rendered todo app with a real database behind it. Built for my COS202 course to learn how the back end and front end of a web app fit together.</p>
+        <div class="hero-btns">
+          <a href="https://github.com/Kmichaeletuk/Ketuk-COS202/tree/main/todo_app/todo_app" target="_blank" rel="noopener" class="btn primary">View code on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="detail-grid">
+      <div>
+        <div class="card">
+          <h2>The problem</h2>
+          <p>Most todo apps I'd built before only lived in the browser. Refresh the page or open it on another device and everything was gone. For this project I wanted the tasks stored properly in a database, with a back end handling every create, read, update and delete, so the data stays put no matter what happens on the page.</p>
+        </div>
+        <div class="card">
+          <h2>What I built</h2>
+          <p>The app is written in Python with FastAPI. Each todo has a name, a description, and a start and end time. SQLModel defines the table and handles the queries, and the data is stored in PostgreSQL. The pages are rendered on the server with Jinja2 templates and styled with Tailwind CSS. To keep setup simple, Docker Compose starts the Postgres database along with pgAdmin, so I can look at the tables while I work.</p>
+        </div>
+        <div class="card">
+          <h2>Features</h2>
+          <ul>
+            <li>Create, view, edit and delete todos, each on its own page</li>
+            <li>Start and end time for every task</li>
+            <li>Flash messages after each action, e.g. "Todo created successfully!"</li>
+            <li>The create route accepts both normal form posts and JSON, so it can also be used like an API</li>
+            <li>Returns a proper 404 when a todo doesn't exist</li>
+            <li>Database connection string kept in a <code>.env</code> file instead of in the code</li>
+            <li>Gzip compression on responses</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Screenshots</h2>
+          <div class="shots">
+            <figure><img src="images/todo-home.jpg" alt="Home page listing todos"><figcaption>Home page with every todo from the database</figcaption></figure>
+            <figure><img src="images/todo-create.jpg" alt="Create todo form"><figcaption>The form for adding a new todo</figcaption></figure>
+            <figure><img src="images/todo-detail.jpg" alt="Single todo page"><figcaption>A single todo with edit and delete options</figcaption></figure>
+          </div>
+        </div>
+        <div class="card">
+          <h2>What I learned</h2>
+          <ul>
+            <li>How a request moves through the app: the route, then the database session, then the template, then the response</li>
+            <li>Using FastAPI's dependency injection to open and close a database session for each request</li>
+            <li>Redirecting after a POST (status 303) so refreshing the page doesn't submit the form again</li>
+            <li>Running a database in Docker instead of installing Postgres directly on my laptop</li>
+            <li>Next time I'd add user accounts so everyone gets their own list, and a "done" status for each task</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="card info">
+          <h3>Project info</h3>
+          <dl>
+            <div><dt>Role</dt><dd>Solo developer</dd></div>
+            <div><dt>Course</dt><dd>COS202</dd></div>
+            <div><dt>Year</dt><dd>2025</dd></div>
+            <div><dt>Type</dt><dd>Full-stack web app</dd></div>
+          </dl>
+          <div class="stack" style="margin-top:16px"><span>Python</span><span>FastAPI</span><span>SQLModel</span><span>PostgreSQL</span><span>Jinja2</span><span>Tailwind CSS</span><span>Docker</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="margin-top:48px">
+    <span>&copy; <span id="year">2026</span> Kufre Etuk</span>
+    <a href="index.html#contact">Get in touch</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
