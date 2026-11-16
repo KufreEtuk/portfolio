@@ -1,6 +1,6 @@
 # Portfolio
 
-My personal portfolio site for CSC assignment 1.
+My personal portfolio site for CSC 419 assignment 1.
 
 **Name:** Kufre Etuk
 **Matric number:** 23120111020
